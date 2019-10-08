@@ -55,5 +55,6 @@ RESTful API is now supported at oqmd.org!
        "response_message": "OK"
      }
 
-- A few points
-    1. limit default == 50
+- Filter keys
+- Fields
+- Response format specifiers
