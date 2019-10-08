@@ -59,8 +59,8 @@ RESTful API is now supported at oqmd.org!
 URL Format
 ~~~~~~~~~~
 
-Query Filters
--------------
+Query Fields
+------------
     -  :field:`filter`: customized filters, e.g. 'element_set=O AND ( stability<-0.1 OR delta_e<-0.5 )'
     -  :field:`limit`: number of data return at once
     -  :field:`offset`: the offset of data return
@@ -77,11 +77,7 @@ Query Filters
     10. :field:`stability`: hull distance of the compound, e.g. 0, <-0.1,
     11. :field:`delta_e`: formation energy of that compound, e.g. <-0.5,
     12. :field:`band_gap`: band gap of the materials, e.g. 0, >2
-
-Fields
-------
-:field:`fields`: return subset of fields, e.g. 'name,id,delta_e', '!sites'
-
+    
 Response Format
 ~~~~~~~~~~~~~~~
 
@@ -90,6 +86,12 @@ Format file types
 
 Response keys
 -------------
+
+More Example Queries
+~~~~~~~~~~~~~~~~~~~~
+    1. :query-url:`http://oqmd.org/oqmdapi/formationenergy?fields=name,entry_id,icsd_id,prototype,ntypes,natoms,volume,delta_e,band_gap,stability&limit=50&offset=0&sort_offset=0&noduplicate=False&desc=False&filter=stability<0.5 AND element_set=(Al-Fe),O AND (ntypes>=3 AND natoms<9) OR ntypes<3`
+        Here, the `filter` key contains a logical expression using `AND` and `OR` functions
+    2. :query-url:`http://oqmd.org/`
 
 Practical Data Retrieval
 ~~~~~~~~~~~~~~~~~~~~~~~~
