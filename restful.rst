@@ -64,7 +64,17 @@ Query Fields
     -  :field:`filter`: customized filters, e.g. 'element_set=O AND ( stability<-0.1 OR delta_e<-0.5 )'
     -  :field:`limit`: number of data return at once
     -  :field:`offset`: the offset of data return
-    -  :field:`fields`: return subset of fields, e.g. 'name,id,delta_e', '!sites'
+    -  :field:`noduplicate`:
+    -  :field:`sort_by`
+    -  :field:`sort_offset`
+    -  :field:`desc`
+    -  :field:`fields`: return subset of fields, e.g. 'name,id,delta_e'
+      - :field:`sites`
+      - :field:`formationenergy_id`
+      - :field:`duplicate_entry_id`
+      - :field:`unit_cell`
+      - :field:`fit`
+      - :field:`calculation_label`
     1. :field:`composition`: compostion of the materials or phase space, e.g. Al2O3, Fe-O
     2. :field:`element_set`: the set of elements that the compound must have, '-' for OR, ',' for AND, e.g. (Fe-Mn),O
     3. :field:`icsd`: whether the structure exists in ICSD, e.g. False, True, F, T
@@ -90,8 +100,13 @@ Response keys
 More Example Queries
 ~~~~~~~~~~~~~~~~~~~~
 1. :query-url:`http://oqmd.org/oqmdapi/formationenergy?fields=name,entry_id,icsd_id,prototype,ntypes,natoms,volume,delta_e,band_gap,stability&limit=50&offset=0&sort_offset=0&noduplicate=False&desc=False&filter=stability<0.5 AND element_set=(Al-Fe),O AND (ntypes>=3 AND natoms<9) OR ntypes<3`
- Here, the `filter` key contains a logical expression using `AND` and `OR` functions
-2. :query-url:`http://oqmd.org/`
+ Here, the `filter` key contains a logical expression using `AND` and `OR` functions. Also, response format filters such as `desc`, `noduplicate`, etc. are also shown in this example
+2. :query-url:`http://oqmd.org/oqmdapi/formationenergy`
+ All the properties of all materials
+3. :query-url:`http://oqmd.org/oqmdapi/formationenergy?fields=name,entry_id,band_gap&limit=50&offset=350&filter=stability=0.0`
+ Limit and offset
+4. :query-url:`http://oqmd.org/oqmdapi/formationenergy?fields=name,entry_id,spacegroup,prototype&sort_by=delta_e&limit=50&sort_offset=350&noduplicate=False&desc=False&filter=stability=0`
+ Showing the use of `sort` and `sort_offset`
 
 Practical Data Retrieval
 ~~~~~~~~~~~~~~~~~~~~~~~~
