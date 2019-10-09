@@ -1,5 +1,12 @@
+======================
+OQMD API Documentation
+======================
+
 .. role:: query-url(literal)
 .. role:: field(literal)
+
+.. sectnum::
+.. contents::
 
 Introduction
 ============
@@ -56,6 +63,10 @@ RESTful API is now supported at oqmd.org!
        "response_message": "OK"
      }
 
+
+Querying
+========
+
 URL Format
 ~~~~~~~~~~
 
@@ -90,12 +101,11 @@ Query Fields
     
 Response Format
 ~~~~~~~~~~~~~~~
+1. Standard Django API Format
+2. JSON
+3. XML
+4. YAML
 
-Format file types
------------------
-
-Response keys
--------------
 
 More Example Queries
 ~~~~~~~~~~~~~~~~~~~~
