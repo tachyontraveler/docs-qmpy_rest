@@ -76,9 +76,10 @@ Query Fields
     -  :field:`limit`: number of data return at once
     -  :field:`offset`: the offset of data return
     -  :field:`noduplicate`:
-    -  :field:`sort_by`
-    -  :field:`sort_offset`
-    -  :field:`desc`
+    -  :field:`sort_by`:
+    -  :field:`sort_offset`:
+    -  :field:`desc`:
+    -  :field:`format`:
     -  :field:`fields`: return subset of fields, e.g. 'name,id,delta_e'
       - :field:`sites`
       - :field:`formationenergy_id`
@@ -115,14 +116,20 @@ More Example Queries
  All the properties of all materials
 3. :query-url:`http://oqmd.org/oqmdapi/formationenergy?fields=name,entry_id,band_gap&limit=50&offset=350&filter=stability=0.0`
  Limit and offset
-4. :query-url:`http://oqmd.org/oqmdapi/formationenergy?fields=name,entry_id,spacegroup,prototype&sort_by=delta_e&limit=50&sort_offset=350&noduplicate=False&desc=False&filter=stability=0`
- Showing the use of `sort` and `sort_offset`
+4. :query-url:`http://oqmd.org/oqmdapi/formationenergy?fields=name,entry_id,spacegroup,prototype&sort_by=delta_e&limit=50&sort_offset=350&noduplicate=True&desc=False&filter=stability=0`
+ Showing the use of `sort`, `sort_offset`, and `noduplicate`
 
 Practical Data Retrieval
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 Command line
 ------------
+:query-url:`wget "http://oqmd.org/oqmdapi/formationenergy?fields=name,entry_id,delta_e&filter=stability=0&format=json" -O outfile.json`
+
+or 
+
+:query-url:`wget "http://oqmd.org/oqmdapi/formationenergy?fields=name,entry_id,delta_e&filter=stability=0&format=yaml" -O outfile.yaml`
 
 Web Browser
 -----------
+`CTRL + S` on the webpage
