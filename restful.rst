@@ -70,8 +70,8 @@ A simple request can be made like this
 URL Format
 ~~~~~~~~~~
 
-Query Fields
-------------
+Primary Query Fields
+--------------------
     -  :field:`filter`: customized filters, e.g. 'element_set=O AND ( stability<-0.1 OR delta_e<-0.5 )'
     -  :field:`limit`: number of data return at once
     -  :field:`offset`: the offset of data return
@@ -81,24 +81,36 @@ Query Fields
     -  :field:`desc`:
     -  :field:`format`:
     -  :field:`fields`: return subset of fields, e.g. 'name,id,delta_e'
-      - :field:`sites`
-      - :field:`formationenergy_id`
-      - :field:`duplicate_entry_id`
-      - :field:`unit_cell`
-      - :field:`fit`
-      - :field:`calculation_label`
+    -  :field:`icsd`: whether the structure exists in ICSD, e.g. False, True, F, T
+    
+  Keywords exclusively available for for usage in :field:`fields`:
+   (eg: :field:`fields=sites,natoms,name`)
+    1. :field:`sites`: list of atomic sites within the unit-cell
+    2. :field:`formationenergy_id`: ID of this instance in formation energy dataset
+    3. :field:`duplicate_entry_id`: OQMD ID of the preferred entry with this same crystal structure
+    4. :field:`unit_cell`: unit cell dimensions (an array of 3x3) 
+    5. :field:`fit`: the type of analysis
+    6. :field:`calculation_label`
+    7. :field:`icsd_id`: ICSD ID of this structure, if it exists
+    8. :field:`composition_generic`: chemical formula abstract, e.g. AB, AB2
+    9. :field:`name`: name of the compound
+      
+  Keywords exclusively available for usage in :field:`filter`: 
+    (eg: :field:`filter=element_set=(S,O) AND (NOT element=As) AND stability=0`)
+      1. :field:`element_set`: the set of elements that the compound must have, '-' for OR, ',' for AND, e.g. (Fe-Mn),O
+      2. :field:`element`: specify the elements inclusion or exclusion of individual elements  
+      
+  Keywords commonly available for both :field:`filter` and :field:`fields`
     1. :field:`composition`: compostion of the materials or phase space, e.g. Al2O3, Fe-O
-    2. :field:`element_set`: the set of elements that the compound must have, '-' for OR, ',' for AND, e.g. (Fe-Mn),O
-    3. :field:`icsd`: whether the structure exists in ICSD, e.g. False, True, F, T
-    4. :field:`prototype`: structure prototype of that compound, e.g. Cu, CsCl
-    5. :field:`generic`: chemical formula abstract, e.g. AB, AB2
-    6. :field:`spacegroup`: the space group of the structure, e.g. Fm-3m
-    7. :field:`natoms`: number of atoms in the supercell, e.g. 2, >5
-    8. :field:`volume`: volume of the supercell, e.g. >10
-    9. :field:`ntypes`: number of elements types in the compound, e.g. 2, <3
-    10. :field:`stability`: hull distance of the compound, e.g. 0, <-0.1,
-    11. :field:`delta_e`: formation energy of that compound, e.g. <-0.5,
-    12. :field:`band_gap`: band gap of the materials, e.g. 0, >2
+    2. :field:`prototype`: structure prototype of that compound, e.g. Cu, CsCl
+    3. :field:`generic`: chemical formula abstract, e.g. AB, AB2
+    4. :field:`spacegroup`: the space group of the structure, e.g. Fm-3m
+    5. :field:`natoms`: number of atoms in the supercell, e.g. 2, >5
+    6. :field:`volume`: volume of the supercell, e.g. >10
+    7. :field:`ntypes`: number of elements types in the compound, e.g. 2, <3
+    8. :field:`stability`: hull distance of the compound, e.g. 0, <-0.1,
+    9. :field:`delta_e`: formation energy of that compound, e.g. <-0.5,
+    10. :field:`band_gap`: band gap of the materials, e.g. 0, >2
     
 Defaults
 --------
