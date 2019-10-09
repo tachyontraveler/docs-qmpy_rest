@@ -75,8 +75,8 @@ Query Fields
     -  :field:`filter`: customized filters, e.g. 'element_set=O AND ( stability<-0.1 OR delta_e<-0.5 )'
     -  :field:`limit`: number of data return at once
     -  :field:`offset`: the offset of data return
-    -  :field:`noduplicate`:
-    -  :field:`sort_by`:
+    -  :field:`noduplicate`: whether the data should include duplicate entries or not
+    -  :field:`sort_by`: the property on which the data has to be sorted
     -  :field:`sort_offset`:
     -  :field:`desc`:
     -  :field:`format`:
@@ -99,6 +99,10 @@ Query Fields
     10. :field:`stability`: hull distance of the compound, e.g. 0, <-0.1,
     11. :field:`delta_e`: formation energy of that compound, e.g. <-0.5,
     12. :field:`band_gap`: band gap of the materials, e.g. 0, >2
+    
+Defaults
+--------
+    -  :field:`sort_by`: :field:`None` (default), :field:`delta_e` , :field:`stability` 
     
 Response Format
 ~~~~~~~~~~~~~~~
@@ -132,4 +136,4 @@ or
 
 Web Browser
 -----------
-`CTRL + S` on the webpage
+:field:`CTRL+S` on the webpage
