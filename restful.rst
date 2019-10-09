@@ -90,7 +90,7 @@ Response keys
 More Example Queries
 ~~~~~~~~~~~~~~~~~~~~
     1. :query-url:`http://oqmd.org/oqmdapi/formationenergy?fields=name,entry_id,icsd_id,prototype,ntypes,natoms,volume,delta_e,band_gap,stability&limit=50&offset=0&sort_offset=0&noduplicate=False&desc=False&filter=stability<0.5 AND element_set=(Al-Fe),O AND (ntypes>=3 AND natoms<9) OR ntypes<3`
-        Here, the `filter` key contains a logical expression using `AND` and `OR` functions
+     Here, the `filter` key contains a logical expression using `AND` and `OR` functions
     2. :query-url:`http://oqmd.org/`
 
 Practical Data Retrieval
