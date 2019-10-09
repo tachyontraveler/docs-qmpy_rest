@@ -11,9 +11,12 @@ OQMD API Documentation
 Introduction
 ============
 
-RESTful API is now supported at oqmd.org! 
+RESTful API is now supported at oqmd.org! It allows the users to access the data of more than 900,000 materials easily by using simple HTTP requests. Downloading the entire SQL database is no longer required to extract materials data unless the DFT calculation-related files are to be viewed. This system is implemented within Django Python API framework. The querying on database is supported with a form-based user interface at oqmd.org/browse. But the documention provided in this page may be used for a more flexible querying and eliminating the need to use a UI. 
 
-- For example, a simple request may be made like this 
+Querying
+========
+
+A simple request can be made like this 
 :query-url:`http://oqmd.org/oqmdapi/formationenergy?fields=name,entry_id,spacegroup,ntypes,band_gap,delta_e&filter=element_set=(Al-Fe),O`:
 
     .. code:: jsonc
@@ -63,9 +66,6 @@ RESTful API is now supported at oqmd.org!
        "response_message": "OK"
      }
 
-
-Querying
-========
 
 URL Format
 ~~~~~~~~~~
